@@ -1,6 +1,3 @@
-// Liste des articles du blog.
-// Les images sont chargées depuis un CDN (picsum.photos) via leur URL.
-// Chaque article a une rubrique (catégorie principale), des tags (categories) et des mots clés.
 const img = (seed) => `https://picsum.photos/seed/${seed}/800/500`
 
 const articles = [

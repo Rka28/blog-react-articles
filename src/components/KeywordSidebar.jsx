@@ -1,4 +1,3 @@
-// Barre latérale : liste des mots clés uniques, clic = filtre
 function KeywordSidebar({ keywords, activeKeyword, onKeywordClick }) {
   return (
     <aside className="lg:sticky lg:top-6 lg:self-start">

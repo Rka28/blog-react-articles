@@ -3,16 +3,12 @@ import articles from './data/articles'
 import ArticleCard from './components/ArticleCard'
 import KeywordSidebar from './components/KeywordSidebar'
 
-// Retire les accents et met en minuscules pour une recherche plus tolérante
 const normalize = (str) => str.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
 
-// Toutes les catégories distinctes, triées par ordre alphabétique
 const allCategories = [...new Set(articles.flatMap((a) => a.categories))].sort()
 
-// Rubriques (catégorie principale de chaque article), sans doublons
 const allRubriques = [...new Set(articles.map((a) => a.rubrique))].sort()
 
-// Mots clés uniques avec leur nombre d'occurrences, triés alphabétiquement
 const allKeywords = Object.entries(
   articles
     .flatMap((a) => a.motsCles)
@@ -21,7 +17,6 @@ const allKeywords = Object.entries(
   .map(([mot, count]) => ({ mot, count }))
   .sort((a, b) => a.mot.localeCompare(b.mot, 'fr'))
 
-// Les articles aimés sont gardés dans le navigateur
 const loadLikes = () => {
   try {
     return JSON.parse(localStorage.getItem('likes')) || []
@@ -41,9 +36,7 @@ function App() {
   useEffect(() => {
     try {
       localStorage.setItem('likes', JSON.stringify(likes))
-    } catch {
-      // stockage indisponible : les likes restent en mémoire
-    }
+    } catch {}
   }, [likes])
 
   const toggleLike = (id) => {
@@ -72,10 +65,8 @@ function App() {
     const query = normalize(search.trim())
 
     return articles.filter((article) => {
-      // Filtre par tags : l'article doit avoir toutes les catégories sélectionnées
       const matchCategories = activeCategories.every((cat) => article.categories.includes(cat))
 
-      // Recherche sur le titre, les mots clés, les catégories et le texte
       const searchable = normalize(
         [article.titre, article.texte, ...article.motsCles, ...article.categories].join(' '),
       )
