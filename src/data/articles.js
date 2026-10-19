@@ -1,5 +1,6 @@
 // Liste des articles du blog.
 // Les images sont chargées depuis un CDN (picsum.photos) via leur URL.
+// Chaque article a une rubrique (catégorie principale), des tags (categories) et des mots clés.
 const img = (seed) => `https://picsum.photos/seed/${seed}/800/500`
 
 const articles = [
@@ -9,6 +10,7 @@ const articles = [
     auteur: 'Camille Martin',
     date: '2026-09-02',
     image: img('react-intro'),
+    rubrique: 'Tech',
     categories: ['Développement', 'React'],
     motsCles: ['composants', 'jsx', 'débutant'],
     texte:
@@ -20,6 +22,7 @@ const articles = [
     auteur: 'Lucas Bernard',
     date: '2026-09-05',
     image: img('hooks'),
+    rubrique: 'Tech',
     categories: ['Développement', 'React'],
     motsCles: ['hooks', 'state', 'effets'],
     texte:
@@ -31,6 +34,7 @@ const articles = [
     auteur: 'Inès Petit',
     date: '2026-08-28',
     image: img('tailwind'),
+    rubrique: 'Tech',
     categories: ['Développement', 'Design'],
     motsCles: ['css', 'tailwind', 'responsive'],
     texte:
@@ -42,6 +46,7 @@ const articles = [
     auteur: 'Hugo Leroy',
     date: '2026-08-20',
     image: img('git'),
+    rubrique: 'Tech',
     categories: ['Développement', 'Outils'],
     motsCles: ['git', 'github', 'versionning', 'push'],
     texte:
@@ -53,6 +58,7 @@ const articles = [
     auteur: 'Camille Martin',
     date: '2026-09-10',
     image: img('filter'),
+    rubrique: 'Tech',
     categories: ['Développement', 'JavaScript'],
     motsCles: ['filter', 'map', 'tableaux'],
     texte:
@@ -64,6 +70,7 @@ const articles = [
     auteur: 'Sarah Moreau',
     date: '2026-07-14',
     image: img('lisbonne'),
+    rubrique: 'Voyage',
     categories: ['Voyage'],
     motsCles: ['portugal', 'city-trip', 'tramway'],
     texte:
@@ -75,6 +82,7 @@ const articles = [
     auteur: 'Thomas Girard',
     date: '2026-06-30',
     image: img('alpes'),
+    rubrique: 'Voyage',
     categories: ['Voyage', 'Sport'],
     motsCles: ['montagne', 'randonnée', 'équipement'],
     texte:
@@ -86,6 +94,7 @@ const articles = [
     auteur: 'Sarah Moreau',
     date: '2026-05-18',
     image: img('japon'),
+    rubrique: 'Voyage',
     categories: ['Voyage', 'Culture'],
     motsCles: ['japon', 'asie', 'temples'],
     texte:
@@ -97,6 +106,7 @@ const articles = [
     auteur: 'Marco Rossi',
     date: '2026-09-12',
     image: img('carbonara'),
+    rubrique: 'Cuisine',
     categories: ['Cuisine'],
     motsCles: ['italie', 'pâtes', 'recette'],
     texte:
@@ -108,6 +118,7 @@ const articles = [
     auteur: 'Léa Fontaine',
     date: '2026-08-11',
     image: img('batch'),
+    rubrique: 'Cuisine',
     categories: ['Cuisine', 'Santé'],
     motsCles: ['organisation', 'repas', 'économie'],
     texte:
@@ -119,6 +130,7 @@ const articles = [
     auteur: 'Léa Fontaine',
     date: '2026-04-09',
     image: img('pain'),
+    rubrique: 'Cuisine',
     categories: ['Cuisine'],
     motsCles: ['boulangerie', 'levain', 'four'],
     texte:
@@ -130,6 +142,7 @@ const articles = [
     auteur: 'Thomas Girard',
     date: '2026-09-01',
     image: img('running'),
+    rubrique: 'Sport & Santé',
     categories: ['Sport', 'Santé'],
     motsCles: ['running', 'débutant', 'programme'],
     texte:
@@ -141,6 +154,7 @@ const articles = [
     auteur: 'Nadia Benali',
     date: '2026-07-22',
     image: img('workout'),
+    rubrique: 'Sport & Santé',
     categories: ['Sport'],
     motsCles: ['fitness', 'poids du corps', 'maison'],
     texte:
@@ -152,6 +166,7 @@ const articles = [
     auteur: 'Nadia Benali',
     date: '2026-06-15',
     image: img('sommeil'),
+    rubrique: 'Sport & Santé',
     categories: ['Santé'],
     motsCles: ['sommeil', 'bien-être', 'routine'],
     texte:
@@ -163,6 +178,7 @@ const articles = [
     auteur: 'Hugo Leroy',
     date: '2026-05-03',
     image: img('photo'),
+    rubrique: 'Culture',
     categories: ['Culture', 'Photo'],
     motsCles: ['ouverture', 'vitesse', 'iso', 'appareil'],
     texte:
@@ -174,6 +190,7 @@ const articles = [
     auteur: 'Hugo Leroy',
     date: '2026-08-02',
     image: img('nightcity'),
+    rubrique: 'Culture',
     categories: ['Photo', 'Voyage'],
     motsCles: ['pose longue', 'trépied', 'lumières'],
     texte:
@@ -185,6 +202,7 @@ const articles = [
     auteur: 'Inès Petit',
     date: '2026-09-15',
     image: img('livres'),
+    rubrique: 'Culture',
     categories: ['Culture'],
     motsCles: ['livres', 'lecture', 'romans'],
     texte:
@@ -196,6 +214,7 @@ const articles = [
     auteur: 'Lucas Bernard',
     date: '2026-03-27',
     image: img('gaming'),
+    rubrique: 'Culture',
     categories: ['Culture', 'Tech'],
     motsCles: ['jeux vidéo', 'histoire', 'consoles'],
     texte:
@@ -207,6 +226,7 @@ const articles = [
     auteur: 'Camille Martin',
     date: '2026-09-18',
     image: img('ia'),
+    rubrique: 'Tech',
     categories: ['Tech'],
     motsCles: ['ia', 'machine learning', 'assistants'],
     texte:
@@ -218,6 +238,7 @@ const articles = [
     auteur: 'Lucas Bernard',
     date: '2026-08-25',
     image: img('laptop'),
+    rubrique: 'Tech',
     categories: ['Tech', 'Outils'],
     motsCles: ['matériel', 'achat', 'processeur'],
     texte:
@@ -229,6 +250,7 @@ const articles = [
     auteur: 'Inès Petit',
     date: '2026-07-08',
     image: img('couleurs'),
+    rubrique: 'Maison & Design',
     categories: ['Design'],
     motsCles: ['palette', 'contraste', 'accessibilité'],
     texte:
@@ -240,6 +262,7 @@ const articles = [
     auteur: 'Sarah Moreau',
     date: '2026-06-02',
     image: img('figma'),
+    rubrique: 'Maison & Design',
     categories: ['Design', 'Outils'],
     motsCles: ['maquette', 'prototype', 'ui'],
     texte:
@@ -251,6 +274,7 @@ const articles = [
     auteur: 'Marco Rossi',
     date: '2026-09-08',
     image: img('async'),
+    rubrique: 'Tech',
     categories: ['Développement', 'JavaScript'],
     motsCles: ['promesses', 'fetch', 'api'],
     texte:
@@ -262,6 +286,7 @@ const articles = [
     auteur: 'Léa Fontaine',
     date: '2026-04-21',
     image: img('balcon'),
+    rubrique: 'Maison & Design',
     categories: ['Maison'],
     motsCles: ['plantes', 'potager', 'ville'],
     texte:
@@ -273,6 +298,7 @@ const articles = [
     auteur: 'Nadia Benali',
     date: '2026-03-12',
     image: img('deco'),
+    rubrique: 'Maison & Design',
     categories: ['Maison', 'Design'],
     motsCles: ['déco', 'rangement', 'lumière'],
     texte:
@@ -284,6 +310,7 @@ const articles = [
     auteur: 'Thomas Girard',
     date: '2026-05-29',
     image: img('velo'),
+    rubrique: 'Sport & Santé',
     categories: ['Sport', 'Santé'],
     motsCles: ['vélo', 'mobilité', 'sécurité'],
     texte:
